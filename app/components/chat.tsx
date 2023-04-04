@@ -532,11 +532,11 @@ export function Chat(props: {
           </div>
         </div>
 
-        <PromptToast
+        {/* <PromptToast
           showToast={!hitBottom}
           showModal={showPromptModal}
           setShowModal={setShowPromptModal}
-        />
+        /> */}
       </div>
 
       <div
@@ -627,7 +627,7 @@ export function Chat(props: {
       </div>
 
       <div className={styles["chat-input-panel"]}>
-        <PromptHints prompts={promptHints} onPromptSelect={onPromptSelect} />
+        {/* <PromptHints prompts={promptHints} onPromptSelect={onPromptSelect} /> */}
         <div className={styles["chat-input-panel-inner"]}>
           <textarea
             ref={inputRef}
