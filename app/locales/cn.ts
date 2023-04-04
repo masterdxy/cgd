@@ -129,14 +129,14 @@ const cn = {
   Store: {
     DefaultTopic: "新的聊天",
     BotHello: "你终于来啦~ 我是Check管理小助手，你可以问我任何职场上的疑惑，或者个人成长上的问题，我都会用我自己的知识去解答。",
-    Error: "出错了，稍后重试吧",
+    Error: "出错了，请稍后重试",
     Prompt: {
       History: (content: string) =>
-        "这是 ai 和用户的历史聊天总结作为前情提要：" + content,
+        "This is a summary of the historical chat between ai and users as previously on:" + content,
       Topic:
-        "使用四到五个字直接返回这句话的简要主题，不要解释、不要标点、不要语气词、不要多余文本，如果没有主题，请直接返回“闲聊”",
+        "Use four to five words to return directly to the brief topic of this sentence. Do not explain, do not punctuate, do not use modal words, do not want redundant text. response in Chinese. If there is no topic, please return directly to ”新的聊天“",
       Summarize:
-        "简要总结一下你和用户的对话，用作后续的上下文提示 prompt，控制在 200 字以内",
+        "Briefly summarize your conversation with the user and use it as a follow-up context prompt prompt. Limit it to 500 words. response in Chinese",
     },
     ConfirmClearAll: "确认清除所有聊天、设置数据？",
   },
