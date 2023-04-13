@@ -31,25 +31,25 @@ export function middleware(req: NextRequest) {
   }
 
   // inject api key
-  if (!token) {
-    const apiKey = process.env.OPENAI_API_KEY;
-    if (apiKey) {
-      console.log("[Auth] set system token");
-      req.headers.set("token", apiKey);
-    } else {
-      return NextResponse.json(
-        {
-          error: true,
-          msg: "Empty Api Key",
-        },
-        {
-          status: 401,
-        },
-      );
-    }
-  } else {
-    console.log("[Auth] set user token");
-  }
+  // if (!token) {
+  //   const apiKey = process.env.OPENAI_API_KEY;
+  //   if (apiKey) {
+  //     console.log("[Auth] set system token");
+  //     req.headers.set("token", apiKey);
+  //   } else {
+  //     return NextResponse.json(
+  //       {
+  //         error: true,
+  //         msg: "Empty Api Key",
+  //       },
+  //       {
+  //         status: 401,
+  //       },
+  //     );
+  //   }
+  // } else {
+  //   console.log("[Auth] set user token");
+  // }
 
   return NextResponse.next({
     request: {
