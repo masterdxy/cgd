@@ -6,10 +6,6 @@ async function makeRequest(req: NextRequest) {
     const api = await requestOpenai(req);
     const res = new NextResponse(api.body);
     res.headers.set("Content-Type", "application/json");
-
-    const json = await req.json();
-    // console.log({ json });
-    console.log("[USER PROMPT] ", json);
     return res;
   } catch (e) {
     console.error("[OpenAI] ", req.body, e);

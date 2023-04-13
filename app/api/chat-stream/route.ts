@@ -14,6 +14,7 @@ async function createStream(req: NextRequest) {
       await res.text()
     ).replace(/provided:.*. You/, "provided: ***. You");
     console.log("[Stream] error ", content);
+    console.log(req.json())
     return "```json\n" + content + "```";
   }
 
