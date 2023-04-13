@@ -10,7 +10,9 @@ export async function requestOpenai(req: NextRequest) {
   const openaiPath = req.headers.get("path");
 
   console.log("[Proxy] ", openaiPath);
-  console.log("[USER PROMPT] ", req.json);
+  const json = await req.json();
+  // console.log({ json });
+  console.log("[USER PROMPT] ", json);
   console.log("[API KEY] ", apiKey);
   return fetch(`${PROTOCOL}://${BASE_URL}/${openaiPath}`, {
     headers: {
