@@ -175,6 +175,100 @@ export function Settings(props: { closeSettings: () => void }) {
       </div>
       <div className={styles["settings"]}>
         <List>
+          {enabledAccessControl ? (
+            <SettingItem
+              title={Locale.Settings.AccessCode.Title}
+              subTitle={Locale.Settings.AccessCode.SubTitle}
+            >
+              <PasswordInput
+                value={accessStore.accessCode}
+                type="text"
+                placeholder={Locale.Settings.AccessCode.Placeholder}
+                onChange={(e) => {
+                  accessStore.updateCode(e.currentTarget.value);
+                }}
+              />
+            </SettingItem>
+          ) : (
+            <></>
+          )}
+
+          {/* <SettingItem
+            title={Locale.Settings.Token.Title}
+            subTitle={Locale.Settings.Token.SubTitle}
+          >
+            <PasswordInput
+              value={accessStore.token}
+              type="text"
+              placeholder={Locale.Settings.Token.Placeholder}
+              onChange={(e) => {
+                accessStore.updateToken(e.currentTarget.value);
+              }}
+            />
+          </SettingItem> */}
+
+          {/* <SettingItem
+            title={Locale.Settings.Usage.Title}
+            subTitle={
+              showUsage
+                ? loadingUsage
+                  ? Locale.Settings.Usage.IsChecking
+                  : Locale.Settings.Usage.SubTitle(usage?.used ?? "[?]")
+                : Locale.Settings.Usage.NoAccess
+            }
+          >
+            {!showUsage || loadingUsage ? (
+              <div />
+            ) : (
+              <IconButton
+                icon={<ResetIcon></ResetIcon>}
+                text={Locale.Settings.Usage.Check}
+                onClick={checkUsage}
+              />
+            )}
+          </SettingItem> */}
+
+          {/* <SettingItem
+            title={Locale.Settings.HistoryCount.Title}
+            subTitle={Locale.Settings.HistoryCount.SubTitle}
+          >
+            <input
+              type="range"
+              title={config.historyMessageCount.toString()}
+              value={config.historyMessageCount}
+              min="0"
+              max="25"
+              step="2"
+              onChange={(e) =>
+                updateConfig(
+                  (config) =>
+                    (config.historyMessageCount = e.target.valueAsNumber),
+                )
+              }
+            ></input>
+          </SettingItem>
+
+          <SettingItem
+            title={Locale.Settings.CompressThreshold.Title}
+            subTitle={Locale.Settings.CompressThreshold.SubTitle}
+          >
+            <input
+              type="number"
+              min={500}
+              max={4000}
+              value={config.compressMessageLengthThreshold}
+              onChange={(e) =>
+                updateConfig(
+                  (config) =>
+                  (config.compressMessageLengthThreshold =
+                    e.currentTarget.valueAsNumber),
+                )
+              }
+            ></input>
+          </SettingItem> */}
+        </List>
+
+        <List>
           <SettingItem title={Locale.Settings.Avatar}>
             <Popover
               onClose={() => setShowEmojiPicker(false)}
@@ -297,7 +391,7 @@ export function Settings(props: { closeSettings: () => void }) {
             ></input>
           </SettingItem>
         </List>
-        <List>
+        {/* <List>
           <SettingItem
             title={Locale.Settings.Prompt.Disable.Title}
             subTitle={Locale.Settings.Prompt.Disable.SubTitle}
@@ -314,100 +408,8 @@ export function Settings(props: { closeSettings: () => void }) {
             ></input>
           </SettingItem>
 
-        </List>
-        <List>
-          {enabledAccessControl ? (
-            <SettingItem
-              title={Locale.Settings.AccessCode.Title}
-              subTitle={Locale.Settings.AccessCode.SubTitle}
-            >
-              <PasswordInput
-                value={accessStore.accessCode}
-                type="text"
-                placeholder={Locale.Settings.AccessCode.Placeholder}
-                onChange={(e) => {
-                  accessStore.updateCode(e.currentTarget.value);
-                }}
-              />
-            </SettingItem>
-          ) : (
-            <></>
-          )}
+        </List> */}
 
-          <SettingItem
-            title={Locale.Settings.Token.Title}
-            subTitle={Locale.Settings.Token.SubTitle}
-          >
-            <PasswordInput
-              value={accessStore.token}
-              type="text"
-              placeholder={Locale.Settings.Token.Placeholder}
-              onChange={(e) => {
-                accessStore.updateToken(e.currentTarget.value);
-              }}
-            />
-          </SettingItem>
-
-          <SettingItem
-            title={Locale.Settings.Usage.Title}
-            subTitle={
-              showUsage
-                ? loadingUsage
-                  ? Locale.Settings.Usage.IsChecking
-                  : Locale.Settings.Usage.SubTitle(usage?.used ?? "[?]")
-                : Locale.Settings.Usage.NoAccess
-            }
-          >
-            {!showUsage || loadingUsage ? (
-              <div />
-            ) : (
-              <IconButton
-                icon={<ResetIcon></ResetIcon>}
-                text={Locale.Settings.Usage.Check}
-                onClick={checkUsage}
-              />
-            )}
-          </SettingItem>
-
-          <SettingItem
-            title={Locale.Settings.HistoryCount.Title}
-            subTitle={Locale.Settings.HistoryCount.SubTitle}
-          >
-            <input
-              type="range"
-              title={config.historyMessageCount.toString()}
-              value={config.historyMessageCount}
-              min="0"
-              max="25"
-              step="2"
-              onChange={(e) =>
-                updateConfig(
-                  (config) =>
-                    (config.historyMessageCount = e.target.valueAsNumber),
-                )
-              }
-            ></input>
-          </SettingItem>
-
-          <SettingItem
-            title={Locale.Settings.CompressThreshold.Title}
-            subTitle={Locale.Settings.CompressThreshold.SubTitle}
-          >
-            <input
-              type="number"
-              min={500}
-              max={4000}
-              value={config.compressMessageLengthThreshold}
-              onChange={(e) =>
-                updateConfig(
-                  (config) =>
-                  (config.compressMessageLengthThreshold =
-                    e.currentTarget.valueAsNumber),
-                )
-              }
-            ></input>
-          </SettingItem>
-        </List>
 
         {/* <List>
           <SettingItem title={Locale.Settings.Model}>
