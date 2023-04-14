@@ -62,4 +62,4 @@
 
 # Build and run the project using the environment variables
 # OPENAI_API_KEY=$OPENAI_API_KEY CODE=$CODE PORT=$PORT yarn build && OPENAI_API_KEY=$OPENAI_API_KEY CODE=$CODE PORT=$PORT yarn start
-OPENAI_API_KEY=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 CODE=check PORT=10086 yarn start
+OPENAI_API_KEY= CODE= PORT=10086 yarn start
